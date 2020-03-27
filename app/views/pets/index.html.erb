@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pets</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Dueño</th>
+      <th>Raza</th>
+      <th>Nacimiento</th>
+      <th>Visita al Veterinario</th>
+      <th>Peso promedio</th>
+      <th>Altura promedio</th>
+      <th>Altura máxima</th>
+      <th>Peso máximo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.client.name %></td>
+        <td><%= pet.race %></td>
+        <td><%= pet.bday %></td>
+        <td><%= pet.vet_visite %></td>
+        <td><%= pet.weight_average %></td>
+        <td><%= pet.height_average %></td>
+        <td><%= pet.height_max %></td>
+        <td><%= pet.weight_max %></td>
+        <td><%= link_to 'Show', pet %></td>
+        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pet', new_pet_path %>
